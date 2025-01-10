@@ -1,0 +1,38 @@
+
+.nav{
+    background-color:#eab676;
+    border-radius: 5px;
+
+}
+
+.allProducts {
+    background-color: #f8fbfdcc;
+    text-align: center;
+    margin-top: 56px;
+    border-radius: 3px;
+}
+
+.allProducts h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 44px;
+    
+}
+.card-image {
+    width: 100%; /* Ensures the image fills the card's width */
+    height: 250px; /* Sets a fixed height for the image */
+    object-fit: cover; /* Ensures the image scales proportionally and fills the defined height */
+    border-radius: 5px; /* Optional: adds rounded corners */
+}
+.my-card{
+    border-color: #eab676 !important;
+}
+.my-button{
+    background-color: #e28743;
+}
+.my-button:hover {
+    background-color: #eab676; /* Darker shade for hover */
+    color: white; /* Keep the text color consistent */
+}
+.s-cart{
+    background:#eab676 !important;
+}
