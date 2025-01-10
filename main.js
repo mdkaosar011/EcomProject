@@ -171,7 +171,6 @@ function plusButton(id, name, price){
 }
 
 function minusButton(id, price){
-    print("plus triggered")
     let product = doc.getElementById(id).textContent;
     let value =parseInt(product) ;
     if (value > 1){
