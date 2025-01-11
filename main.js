@@ -155,7 +155,7 @@ function myCart(){
                 <span class="mx-2" id="${item.id}">${item.count}</span>
                 <button onclick="plusButton(${item.id},'${item.name}', ${item.price})" class="btn btn-outline-secondary btn-sm">+</button>
             </div>
-            <a href="#" onclick="Remove(${item.id})" class="text-danger">Remove</a>
+            <button  onclick="Remove(${item.id})" class="btn text-danger">Remove</button>
         </div>   `
     } );
     doc.getElementById("subtotal").innerText = `$ ${subtotal}`;
@@ -183,45 +183,19 @@ function minusButton(id, price){
 
 function checkout() {
        // Open a new window centered on the screen
-       const windowWidth = 400;
-       const windowHeight = 300;
-
-       const screenWidth = window.screen.width;
-       const screenHeight = window.screen.height;
-
-       const windowLeft = (screenWidth / 2) - (windowWidth / 2);
-       const windowTop = (screenHeight / 2) - (windowHeight / 2);
-
-       // Open a new window with the specified dimensions and position
-       let newWindow = window.open(
-           "",
-           "_blank",
-           `width=${windowWidth},height=${windowHeight},top=${windowTop},left=${windowLeft}`
-       );
-
-       // Add content to the new window
-       newWindow.document.write(`
-           <h1>Thank You for Your Purchase!</h1>
-           <p>Your order has been placed successfully.</p>
-           <p>You will be redirected to the home page shortly...</p>
-           <style>
-               body {
-                   font-family: Arial, sans-serif;
-                   text-align: center;
-                   margin-top: 50px;
-               }
-               h1 {
-                   color: green;
-               }
-           </style>
-       `);
-
-       // Automatically close the new window and redirect to the homepage after 5 seconds
-       setTimeout(() => {
-           newWindow.close();
-           window.location.href = "index.html"; // Replace with your home page URL
-       }, 5000);
-       itemsList = [];
-       doc.getElementById('cartAmount').innerText = 0;
+       `<div class="modal-body">
+       <h2 class="fs-5">Popover in a modal</h2>
+       <p>This <button class="btn btn-secondary" data-bs-toggle="popover" title="Popover title" data-bs-content="Popover body content is set in this attribute.">button</button> triggers a popover on click.</p>
+       <hr>
+       <h2 class="fs-5">Tooltips in a modal</h2>
+       <p><a href="#" data-bs-toggle="tooltip" title="Tooltip">This link</a> and <a href="#" data-bs-toggle="tooltip" title="Tooltip">that link</a> have tooltips on hover.</p>
+     </div>`
     }
 
+function ClearAll(){
+    cartItems=[];
+    subtotal = 0;
+    myCart();
+    doc.getElementById('cartAmount').innerText = 0;
+
+}

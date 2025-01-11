@@ -70,7 +70,7 @@
                 <span class="mx-2">1</span>
                 <button class="btn btn-outline-secondary btn-sm">+</button>
             </div>
-            <a href="#" class="text-danger">Remove</a>
+            <button class="btn text-danger">Remove </button>
         </div>
         </div>
         <!-- Subtotal -->
@@ -80,9 +80,13 @@
         </div>
 
         <!-- Checkout Button -->
-        <button  class="btn btn-warning w-100 mt-3">Proceed to Checkout</button>
+        <div class="d-flex justify-content-between align-items-center mt-3">
+            <button class="btn btn-warning flex-grow-1 me-2 ">Proceed to Checkout</button>
+            <button onclick="ClearAll()" class="btn btn-warning">Clear All</button>
+          </div>
     </div>
-</div>
+    </div>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

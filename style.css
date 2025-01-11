@@ -36,3 +36,12 @@
 .s-cart{
     background:#eab676 !important;
 }
+.clear{
+    background-color: #ffc107; /* Same yellow color */
+    color: #000; /* Black text */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
