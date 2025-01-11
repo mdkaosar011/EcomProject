@@ -206,22 +206,33 @@ function ClearAll(){
 }
 
 function proceedToCheckout() {
-    // Get the offcanvas and modal elements
-    const offcanvasElement = document.getElementById('shoppingCart');
-    const modalElement = document.getElementById('checkoutModal');
-  
-    // Get Bootstrap instances
-    const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
-    const modal = new bootstrap.Modal(modalElement);
-  
-    // Listen for the offcanvas to close completely
-    offcanvasElement.addEventListener('hidden.bs.offcanvas', () => {
-      // Show the modal after the offcanvas is closed
-      modal.show();
-    }, { once: true }); // Use `{ once: true }` to remove the listener after it's triggered
-  
-    // Close the offcanvas
-    offcanvas.hide();
-    ClearAll();
-  }
-  
+    // Assuming `cartItems` is an array or a structure that holds cart items
+    if (cartItems && cartItems.length > 0) { // Check if the cart is not empty
+        // Get the offcanvas and modal elements
+        const offcanvasElement = document.getElementById('shoppingCart');
+        const modalElement = document.getElementById('checkoutModal');
+
+        // Get Bootstrap instances
+        const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
+        const modal = new bootstrap.Modal(modalElement);
+
+        // Listen for the offcanvas to close completely
+        offcanvasElement.addEventListener(
+            'hidden.bs.offcanvas',
+            () => {
+                // Show the modal after the offcanvas is closed
+                modal.show();
+            },
+            { once: true } // Use `{ once: true }` to remove the listener after it's triggered
+        );
+
+        // Close the offcanvas
+        offcanvas.hide();
+
+        // Clear the cart
+        ClearAll();
+    } else {
+        // Show an alert if the cart is empty
+        alert("Your cart is empty! Please add items before proceeding.");
+    }
+}
