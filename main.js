@@ -41,7 +41,7 @@ const productsList = [
           <h5 class="card-title">${element.name}</h5>
           <div class="d-flex justify-content-between align-items-center card_button dd">
             <span class="fw-bold">$ ${element.price}</span>
-            <button onclick="AddToCart(${element.id}, '${element.name}', ${element.price})" class="btn my-button">Add to Cart</button>
+            <button onclick="AddToCart(${element.id}, '${element.name}', ${element.price},'${element.image}')" class="btn my-button">Add to Cart</button>
           </div>
         </div>
       </div>`;
@@ -65,7 +65,7 @@ var subtotal = 0;
 var cartItems =[];
 
 
-function AddToCart(id, name, price){
+function AddToCart(id, name, price, image){
     
     console.log(name, "Is added");
     subtotal += price;
@@ -77,7 +77,8 @@ function AddToCart(id, name, price){
         id : id,
         name : name,
         price : price,
-        count : 1
+        count : 1,
+        image : image
     };
 
     // Check if newItem already exists in cartItems based on its properties
@@ -150,7 +151,7 @@ function myCart(){
     itemsList.innerHTML = '';
  cartItems.forEach(item => {
         itemsList.innerHTML += `  <div  class="cart-item d-flex justify-content-between align-items-center mb-3">
-            <img src="images/tshirt.jpg" alt="Product" class="img-fluid" style="width: 50px; height: 50px;">
+            <img src="${item.image}" alt="Product" class="img-fluid" style="width: 50px; height: 50px;">
             <div class="cart-details">
                 <p class="mb-0">${item.name}</p>
                 <small>$ ${item.price}</small>
