@@ -48,7 +48,22 @@
        
     </div>
    
-
+        <!-- Modal -->
+        <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="productModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <img id="modalProductImage" src="" class="img-fluid mb-3" alt="Product Image">
+                <p id="modalProductDescription"></p>
+                <h5 class="text-primary" id="modalProductPrice"></h5>
+                </div>
+            </div>
+            </div>
+        </div>
 
 <!-- Offcanvas Sidebar -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="shoppingCart" aria-labelledby="shoppingCartLabel">
@@ -81,12 +96,28 @@
 
         <!-- Checkout Button -->
         <div class="d-flex justify-content-between align-items-center mt-3">
-            <button class="btn btn-warning flex-grow-1 me-2 ">Proceed to Checkout</button>
+            <button onclick="proceedToCheckout()" class="btn btn-warning flex-grow-1 me-2">Proceed to Checkout</button>
             <button onclick="ClearAll()" class="btn btn-warning">Clear All</button>
           </div>
     </div>
     </div>
-
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="checkoutModalLabel">Order Confirmation</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+              <h4 class="text-success">🎉 Order Placed! 🎉</h4>
+              <p>Thank you for shopping with us! Your order has been successfully placed.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

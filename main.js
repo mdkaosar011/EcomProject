@@ -6,7 +6,7 @@ const productsList = [
     { id: 3, name: "Sneakers", price: 75, quantity: 30, image: "images/sneakers.jpg", description: "Durable and comfortable sneakers." },
     { id: 4, name: "Jacket", price: 100, quantity: 20, image: "images/jacket.jpg", description: "Warm and cozy jacket." },
     { id: 5, name: "Backpack", price: 35, quantity: 25, image: "images/backpack.jpg", description: "Spacious and durable backpack." },
-    { id: 6, name: "Cap", price: 15, quantity: 60, image: "images/cap.jpg", description: "Trendy cotton cap." },
+    { id: 6, name: "Cap", price: 15, quantity: 60, image: "images/cap.png", description: "Trendy cotton cap." },
     { id: 7, name: "Sunglasses", price: 25, quantity: 35, image: "images/sunglasses.jpg", description: "UV-protected stylish sunglasses." },
     { id: 8, name: "Watch", price: 120, quantity: 15, image: "images/watch.jpg", description: "Elegant analog watch." },
     { id: 9, name: "Sweater", price: 45, quantity: 30, image: "images/sweater.jpg", description: "Soft and warm sweater." },
@@ -16,46 +16,51 @@ const productsList = [
     { id: 13, name: "Socks", price: 8, quantity: 100, image: "images/socks.jpg", description: "Comfortable cotton socks." },
     { id: 14, name: "Shoes", price: 90, quantity: 20, image: "images/shoes.jpg", description: "High-quality leather shoes." },
     { id: 15, name: "Hat", price: 22, quantity: 45, image: "images/hat.jpg", description: "Stylish summer hat." },
-    { id: 16, name: "Shorts", price: 30, quantity: 35, image: "images/shorts.jpg", description: "Casual summer shorts." },
-    { id: 17, name: "Hoodie", price: 60, quantity: 25, image: "images/hoodie.jpg", description: "Cozy fleece hoodie." },
-    { id: 18, name: "Dress", price: 70, quantity: 15, image: "images/dress.jpg", description: "Elegant evening dress." },
-    { id: 19, name: "Blazer", price: 150, quantity: 10, image: "images/blazer.jpg", description: "Smart tailored blazer." },
-    { id: 20, name: "Skirt", price: 40, quantity: 20, image: "images/skirt.jpg", description: "Chic midi skirt." },
-    { id: 21, name: "Leggings", price: 25, quantity: 50, image: "images/leggings.jpg", description: "Stretchable and comfy leggings." },
-    { id: 22, name: "Tank Top", price: 15, quantity: 60, image: "images/tanktop.jpg", description: "Breathable cotton tank top." },
-    { id: 23, name: "Sportswear", price: 80, quantity: 18, image: "images/sportswear.jpg", description: "Premium quality sportswear." },
-    { id: 24, name: "Pajamas", price: 35, quantity: 40, image: "images/pajamas.jpg", description: "Comfortable sleepwear." },
-    { id: 25, name: "Slippers", price: 20, quantity: 55, image: "images/slippers.jpg", description: "Soft and cozy slippers." },
-    { id: 26, name: "Beanie", price: 12, quantity: 50, image: "images/beanie.jpg", description: "Warm knitted beanie." },
-    { id: 27, name: "Wallet", price: 45, quantity: 30, image: "images/wallet.jpg", description: "Genuine leather wallet." },
-    { id: 28, name: "Bracelet", price: 25, quantity: 35, image: "images/bracelet.jpg", description: "Stylish charm bracelet." },
-    { id: 29, name: "Earrings", price: 50, quantity: 40, image: "images/earrings.jpg", description: "Elegant gemstone earrings." },
-    { id: 30, name: "Necklace", price: 80, quantity: 25, image: "images/necklace.jpg", description: "Beautiful pendant necklace." },
-    { id: 30, name: "Necklace", price: 80, quantity: 25, image: "images/necklace.jpg", description: "Beautiful pendant necklace." },
-    { id: 30, name: "Necklace", price: 80, quantity: 25, image: "images/necklace.jpg", description: "Beautiful pendant necklace." }
+    { id: 16, name: "Hoodie", price: 60, quantity: 25, image: "images/hoodie.jpg", description: "Cozy fleece hoodie." },
+    { id: 17, name: "Dress", price: 70, quantity: 15, image: "images/dress.jpg", description: "Elegant evening dress." },
+    { id: 18, name: "Blazer", price: 150, quantity: 10, image: "images/blazer.jpg", description: "Smart tailored blazer." },
+    { id: 19, name: "Skirt", price: 40, quantity: 20, image: "images/skirt.jpg", description: "Chic midi skirt." },
+    { id: 20, name: "Sportswear", price: 80, quantity: 18, image: "images/sportswear.jpg", description: "Premium quality sportswear." },
+    { id: 21, name: "Pajamas", price: 35, quantity: 40, image: "images/pajamas.jpg", description: "Comfortable sleepwear." },
+    { id: 22, name: "Slippers", price: 20, quantity: 55, image: "images/slippers.jpg", description: "Soft and cozy slippers." },
+    { id: 23, name: "Wallet", price: 45, quantity: 30, image: "images/wallet.jpg", description: "Genuine leather wallet." },
+   
   ];
   function display(){
     let products = doc.getElementById('shop');
     products.innerHTML='';
     productsList.forEach(element => {
        console.log("Shop Open")
-        products.innerHTML += `  <div class="col-3 card my-card" style="width: 18rem;">
-            <img src="images/tshirt.jpg" class="card-img-top mt-2 card-image"" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">${element.name}</h5>
-              
-              
-               <div class="d-flex justify-content-between align-items-center card_button dd">
-                        <span class=" fw-bold">$ ${element.price}</span>
-                        <button onclick="AddToCart(${element.id}, '${element.name}', ${element.price})"  class="btn my-button">Add to Cart</button>
-                    </div>
-            </div>
-          </div>`
+        products.innerHTML += `   <div class="col-3 card my-card" style="width: 18rem;">
+        <img src="${element.image}" 
+             class="card-img-top mt-2 card-image" 
+             alt="${element.name}" 
+             onclick="showProductModal('${element.image}', '${element.name}', '${element.description}', ${element.price})"
+             style="cursor: pointer;">
+        <div class="card-body">
+          <h5 class="card-title">${element.name}</h5>
+          <div class="d-flex justify-content-between align-items-center card_button dd">
+            <span class="fw-bold">$ ${element.price}</span>
+            <button onclick="AddToCart(${element.id}, '${element.name}', ${element.price})" class="btn my-button">Add to Cart</button>
+          </div>
+        </div>
+      </div>`;
        
     });
     console.log("Product loaded");
   }
 display();
+
+function showProductModal(image, name, description, price) {
+    document.getElementById('modalProductImage').src = image;
+    document.getElementById('productModalLabel').innerText = name;
+    document.getElementById('modalProductDescription').innerText = description;
+    document.getElementById('modalProductPrice').innerText = `$ ${price}`;
+    const productModal = new bootstrap.Modal(document.getElementById('productModal'));
+    productModal.show();
+  }
+
+
 var subtotal = 0;
 var cartItems =[];
 
@@ -199,3 +204,24 @@ function ClearAll(){
     doc.getElementById('cartAmount').innerText = 0;
 
 }
+
+function proceedToCheckout() {
+    // Get the offcanvas and modal elements
+    const offcanvasElement = document.getElementById('shoppingCart');
+    const modalElement = document.getElementById('checkoutModal');
+  
+    // Get Bootstrap instances
+    const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
+    const modal = new bootstrap.Modal(modalElement);
+  
+    // Listen for the offcanvas to close completely
+    offcanvasElement.addEventListener('hidden.bs.offcanvas', () => {
+      // Show the modal after the offcanvas is closed
+      modal.show();
+    }, { once: true }); // Use `{ once: true }` to remove the listener after it's triggered
+  
+    // Close the offcanvas
+    offcanvas.hide();
+    ClearAll();
+  }
+  
