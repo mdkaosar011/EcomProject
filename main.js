@@ -209,6 +209,7 @@ function ClearAll(){
 
 }
 
+
 function proceedToCheckout() {
     // Assuming `cartItems` is an array or a structure that holds cart items
     if (cartItems && cartItems.length > 0) { // Check if the cart is not empty
