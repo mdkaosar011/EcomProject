@@ -24,8 +24,9 @@ const productsList = [
     { id: 21, name: "Pajamas", price: 35, quantity: 40, image: "images/pajamas.jpg", description: "Comfortable sleepwear." },
     { id: 22, name: "Slippers", price: 20, quantity: 55, image: "images/slippers.jpg", description: "Soft and cozy slippers." },
     { id: 23, name: "Wallet", price: 45, quantity: 30, image: "images/wallet.jpg", description: "Genuine leather wallet." },
-   
   ];
+
+
   function display(){
     let products = doc.getElementById('shop');
     products.innerHTML='';
@@ -63,7 +64,7 @@ function showProductModal(image, name, description, price) {
 
 var subtotal = 0;
 var cartItems =[];
-
+var total = subtotal;
 
 function AddToCart(id, name, price, image){
     
@@ -165,6 +166,8 @@ function myCart(){
         </div>   `
     } );
     doc.getElementById("subtotal").innerText = `$ ${subtotal}`;
+    doc.getElementById("total").innerText = `$ ${subtotal}`;
+
 }
 
 function plusButton(id, name, price){
@@ -237,3 +240,24 @@ function proceedToCheckout() {
         alert("Your cart is empty! Please add items before proceeding.");
     }
 }
+
+function applyPromoCode() {
+    const promoCode = document.getElementById("promoCode").value.trim().toLowerCase();
+    const codes = {
+        ostad10: 10,
+        ostad5: 5
+    };
+
+    if (promoCode in codes) {
+        const discountPercentage = codes[promoCode];
+        const subtotalElement = document.getElementById("total");
+        const currentSubtotal = parseFloat(subtotalElement.textContent) || 0;
+
+        const total = subtotal * (1 - discountPercentage / 100); // Apply discount
+        subtotalElement.textContent = total.toFixed(2);
+        alert(`Promo code applied! You get a ${discountPercentage}% discount.`);
+    } else {
+        alert("Invalid promo code. Please try again.");
+    }
+}
+
