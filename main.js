@@ -167,6 +167,7 @@ function myCart(){
     } );
     doc.getElementById("subtotal").innerText = `$ ${subtotal}`;
     doc.getElementById("total").innerText = `$ ${subtotal}`;
+    applyPromoCode();
 
 }
 
@@ -176,6 +177,7 @@ function plusButton(id, name, price){
     value += 1;
     doc.getElementById(id).textContent = value;
     AddToCart(id, name, price);
+    applyPromoCode();
 
 }
 
@@ -186,6 +188,7 @@ function minusButton(id, price){
         value -= 1;
         doc.getElementById(id).textContent = value;
         RemoveToCart(id,price);
+        applyPromoCode();
         
     }
 }
@@ -241,7 +244,7 @@ function proceedToCheckout() {
         alert("Your cart is empty! Please add items before proceeding.");
     }
 }
-
+var promoApplied = false;
 function applyPromoCode() {
     const promoCode = document.getElementById("promoCode").value.trim().toLowerCase();
     const codes = {
@@ -249,16 +252,22 @@ function applyPromoCode() {
         ostad5: 5
     };
 
-    if (promoCode in codes) {
+    if(promoCode){
+        if (promoCode in codes) {
         const discountPercentage = codes[promoCode];
         const subtotalElement = document.getElementById("total");
         const currentSubtotal = parseFloat(subtotalElement.textContent) || 0;
 
         const total = subtotal * (1 - discountPercentage / 100); // Apply discount
         subtotalElement.textContent = total.toFixed(2);
-        alert(`Promo code applied! You get a ${discountPercentage}% discount.`);
+        if(promoApplied===false){
+            promoApplied = true;
+            alert(`Promo code applied! You get a ${discountPercentage}% discount.`);
+        }
+        
     } else {
         alert("Invalid promo code. Please try again.");
     }
+}
 }
 
