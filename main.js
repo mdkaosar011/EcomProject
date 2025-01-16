@@ -256,7 +256,7 @@ function applyPromoCode() {
         if (promoCode in codes) {
         const discountPercentage = codes[promoCode];
         const subtotalElement = document.getElementById("total");
-        const currentSubtotal = parseFloat(subtotalElement.textContent) || 0;
+    
 
         const total = subtotal * (1 - discountPercentage / 100); // Apply discount
         subtotalElement.textContent = total.toFixed(2);
@@ -269,7 +269,8 @@ function applyPromoCode() {
         alert("Invalid promo code. Please try again.");
     }
 }else{
-    myCart();
+    const subtotalElement = document.getElementById("total");
+    subtotalElement.textContent = subtotal.toFixed(2);
 }
 }
 
