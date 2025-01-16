@@ -268,6 +268,8 @@ function applyPromoCode() {
     } else {
         alert("Invalid promo code. Please try again.");
     }
+}else{
+    myCart();
 }
 }
 
